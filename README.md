@@ -63,7 +63,7 @@ Atenção: O comportamento de `UPDATE_TIME` depende do tipo de tabela (engine) q
   
   As tabelas são ordenadas pela data e hora da última modificação (`update_time`) em ordem decrescente, para exibir a mais recente.
 
-### 2.Formato da data e hora:
+### 2. Formato da data e hora:
 
   Usamos a classe `DateTime` do PHP para formatar a data de modificação no formato brasileiro (`d/m/Y H:i:s`).
 
