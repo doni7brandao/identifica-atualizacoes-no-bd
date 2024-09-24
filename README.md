@@ -55,7 +55,7 @@ Atenção: O comportamento de `UPDATE_TIME` depende do tipo de tabela (engine) q
   ```
 ## Explicação do script:
 
-# 1. Consulta ao `information_schema.tables:`
+### 1. Consulta ao `information_schema.tables:`
 
   Estamos buscando as tabelas do banco de dados cujo campo `UPDATE_TIME` não é `NULL`.
 
@@ -63,20 +63,20 @@ Atenção: O comportamento de `UPDATE_TIME` depende do tipo de tabela (engine) q
   
   As tabelas são ordenadas pela data e hora da última modificação (`update_time`) em ordem decrescente, para exibir a mais recente.
 
-# 2.Formato da data e hora:
+### 2.Formato da data e hora:
 
   Usamos a classe `DateTime` do PHP para formatar a data de modificação no formato brasileiro (`d/m/Y H:i:s`).
 
-# Limitação da consulta:
+### Limitação da consulta:
 
   O script exibe apenas a última tabela modificada, mas se você quiser ver várias modificações, pode remover o `LIMIT 1` ou alterar o limite.
 
 ## Considerações Finais:
 
-# Tipo de Engine:
+#### Tipo de Engine:
   Para engines MyISAM, o campo `UPDATE_TIME` é atualizado automaticamente. Contudo, para `InnoDB`, nem sempre essa informação está disponível. Se todas as suas tabelas forem InnoDB, esse método pode não funcionar.
 
-# Registro de transações:
+#### Registro de transações:
   Se você quiser monitorar modificações detalhadas de cada operação no banco, pode ser necessário habilitar logs mais avançados ou até usar triggers para registrar as modificações em tabelas personalizadas.
 
 Este script é útil para um acompanhamento básico de alterações em tabelas. Caso precise de monitoramento em tempo real ou para tipos de tabelas que não atualizam automaticamente o `UPDATE_TIME`, a solução pode ser mais complexa.
